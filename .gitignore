@@ -1,0 +1,13 @@
+bin/Release
+bin/Debug/Coursework.exe
+bin/Debug/Coursework.exe.config
+bin/Debug/Coursework.pdb
+bin/Debug/Employees.txt
+bin/Debug/WorkTypes.txt
+bin/Debug/.vs
+bin/Debug/.vs/Course/v16/.suo
+obj
+Properties
+App.config
+Course.csproj
+packages.config
