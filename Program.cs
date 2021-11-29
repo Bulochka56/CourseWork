@@ -56,6 +56,10 @@ namespace Coursework
                         {
                             objectEmployees.AddEmployee();
                         }
+                        if (menu == 4)
+                        {
+                            objectEmployees.SortEmployee();
+                        }
                     }
                     Console.Clear();
                     menu = 10;

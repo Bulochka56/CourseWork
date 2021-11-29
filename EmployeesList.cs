@@ -79,5 +79,14 @@ namespace Coursework
             Employees.Add(new Employee(name, title, salary, phoneNumber));
             listSize++;
         }
+        public void SortEmployee()
+        {
+            Employees =
+                (from employee in Employees
+                orderby employee.Name
+                select employee).ToList();
+            
+
+        }
     }
 }
