@@ -5,9 +5,9 @@ bin/Debug/Coursework.pdb
 bin/Debug/Employees.txt
 bin/Debug/WorkTypes.txt
 bin/Debug/.vs
-bin/Debug/.vs/Course/v16/.suo
+bin/Debug/.vs/Coursework/v16/.suo
 obj
 Properties
 App.config
-Course.csproj
+Coursework.csproj
 packages.config
