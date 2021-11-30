@@ -31,38 +31,7 @@ namespace Coursework
 
                 if (menu == 1)
                 {
-                    Console.Clear();
-                    if(objectEmployees == null)
-                    {
-                        Messages.CreatEmployeesList();
-                        string filename = Console.ReadLine() + ".txt";
-                        objectEmployees = new EmployeesList(filename);
-                        Console.Clear();
-                    }
-                    Messages.DisplayEmployeesMenu();
-                    while(menu != 0)
-                    {
-
-                        menu = Convert.ToInt32(Console.ReadLine());
-                        if (menu == 1)
-                        {
-                            objectEmployees.DisplayEmployeesInfo();
-                        }
-                        if (menu == 2)
-                        {
-                            objectEmployees.RemoveEmployee();
-                        }
-                        if (menu == 3)
-                        {
-                            objectEmployees.AddEmployee();
-                        }
-                        if (menu == 4)
-                        {
-                            objectEmployees.SortEmployee();
-                        }
-                    }
-                    Console.Clear();
-                    menu = 10;
+                    Menu.DoEmployeesMenu(objectEmployees);
                 }
                 if (menu == 2)
                 {

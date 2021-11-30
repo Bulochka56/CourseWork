@@ -21,6 +21,7 @@ namespace Coursework
             string description = "";
             string recommendation = "";
             int payment = 0;
+            int numberOfEmployees = 0;
 
             Errors.CheckFile(filename);
             StreamReader input = new StreamReader(filename);
@@ -34,7 +35,7 @@ namespace Coursework
                     break;
                 }
 
-                BuildedEmployees.Add(new WorkType(description, recommendation,payment));
+                BuildedEmployees.Add(new WorkType(description, recommendation,payment, numberOfEmployees));
             }
             input.Close();
             listSize = BuildedEmployees.Count;

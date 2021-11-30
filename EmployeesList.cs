@@ -44,7 +44,7 @@ namespace Coursework
 
         public void DisplayEmployeesInfo()
         {
-            var table = new ConsoleTable("№","Имя", "Должность","Телефон","Оклад");
+            var table = new ConsoleTable("№","Имя", "Должность","Номер телефона","Оклад");
             for (int i = 0; i < listSize; i++)
             {
                 table.AddRow(i+1,Employees[i].Name, Employees[i].Title, Employees[i].PhoneNumber, Employees[i].Salary);
@@ -79,14 +79,39 @@ namespace Coursework
             Employees.Add(new Employee(name, title, salary, phoneNumber));
             listSize++;
         }
-        public void SortEmployee()
+        public void SortEmployees()
         {
-            Employees =
-                (from employee in Employees
-                orderby employee.Name
-                select employee).ToList();
-            
-
+            Console.WriteLine("Введите назание поля, по которому нужно отсортировать: ");
+            string param = Console.ReadLine();
+            if (param == "ФИО")
+            {
+                Employees =
+                    (from employee in Employees
+                     orderby employee.Name
+                     select employee).ToList();
+            }
+            if (param == "Должность")
+            {
+                Employees =
+                    (from employee in Employees
+                     orderby employee.Title
+                     select employee).ToList();
+            }
+            if (param == "Номер телефона")
+            {
+                Employees =
+                    (from employee in Employees
+                     orderby employee.PhoneNumber
+                     select employee).ToList();
+            }
+            if (param == "Оклад")
+            {
+                Employees =
+                    (from employee in Employees
+                     orderby employee.Salary
+                     select employee).ToList();
+            }
         }
+        
     }
 }

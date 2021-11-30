@@ -75,11 +75,16 @@ namespace Coursework
             Console.Write(" 3");
             Console.ResetColor();
             Console.WriteLine(", чтобы добавить сотрудника");
+            Console.Write("Введите");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write(" 4");
+            Console.ResetColor();
+            Console.WriteLine(", чтобы отсортировать список сотрудников");
         }
         static public void ErrorSalary()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("[!] Ошибка в формате оклада сотрудника\n");
+            Console.WriteLine(" Ошибка в формате оклада сотрудника\n");
             Console.ResetColor();
         }
 

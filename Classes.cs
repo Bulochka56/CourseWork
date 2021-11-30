@@ -44,12 +44,14 @@ namespace Coursework
     {
         string description; //Описание работы
         string recommendation; //Рекомендуемая должность на эту работу
-        int payment; //Оплата за день 
-        public WorkType(string description, string recommendation, int payment)
+        int payment; //Оплата за день
+        int numberOfEmployees; //Количество работников
+        public WorkType(string description, string recommendation, int payment,int numberOfEmployees)
         {
             this.description = description;
             this.recommendation = recommendation;
             this.payment = payment;
+            this.numberOfEmployees = numberOfEmployees;
         }
         public string Description
         {
@@ -63,6 +65,10 @@ namespace Coursework
         public int Payment
         {
             get { return this.payment; }
+        }
+        public int NumberOfEmployees
+        {
+            get { return this.numberOfEmployees; }
         }
 
     }
