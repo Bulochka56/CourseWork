@@ -26,4 +26,11 @@
 
 - Вычисление заработной платы
 
+![salary](https://user-images.githubusercontent.com/40294795/168596776-bf966189-4aea-486d-a817-bc0187449a88.png)
+
+Также были преусмотрены ошибки при вводе:
+
+![image](https://user-images.githubusercontent.com/40294795/168597400-0ce09512-a1ee-4acb-9f3e-93113baf385b.png)
+![image](https://user-images.githubusercontent.com/40294795/168597472-f5111b9d-f181-4a3b-a5f3-1cf50210a558.png)
+![image](https://user-images.githubusercontent.com/40294795/168597533-8a9b1175-40a9-4989-8137-86b16ccd2635.png)
 
