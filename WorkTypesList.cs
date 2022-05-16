@@ -8,48 +8,85 @@ using ConsoleTables;
 
 namespace Coursework
 {
-    class WorkTypesList
+    class WorkTypesList : Lists
     {
-        List<WorkType> BuildedEmployees = new List<WorkType>();
-        int listSize;
-        string filename = "WorkTypes.txt";
+        public WorkTypesList(string filename) : base(filename, "WorkTypesList")
+        {
+            if (workTypes == null)
+            {
+                Messages.ErrorFile();
+                return;
+            }
+            listSize = workTypes.Count();
+        }
+        public List<WorkType> WorkTypes
+        {
+            get { return workTypes; }
+        }
 
-        
-
-        public WorkTypesList()
+        public override void DisplayListInfo()
+        {
+            var table = new ConsoleTable("№", "Описание", "Рекомендуемая должность", "Оплата за день", "Количество работников");
+            for (int i = 0; i < listSize; i++)
+            {
+                table.AddRow(i + 1, workTypes[i].Description, workTypes[i].Recommendation, workTypes[i].Payment, workTypes[i].NumberOfEmployees);
+            }
+            table.Write(Format.Alternative);
+        }
+        public override void RemoveByIndex()
+        {
+            Console.WriteLine("Введите номер типа работы:");
+            int i = -1;
+            Errors.CheckNumber(ref i);
+            while (!(i >= 0 && i <= workTypes.Count))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ошибка:Вида работы под таким номером нет");
+                Console.ResetColor();
+                Console.WriteLine("Введите номер типа работы");
+                Errors.CheckNumber(ref i);
+            }
+            workTypes.RemoveAt(i - 1);
+            listSize--;
+        }
+        public override void AddByConsole()
         {
             string description = "";
             string recommendation = "";
             int payment = 0;
             int numberOfEmployees = 0;
-
-            Errors.CheckFile(filename);
-            StreamReader input = new StreamReader(filename);
-            while (!(input.EndOfStream))
-            {
-                string[] line = input.ReadLine().Split(';');
-                description = line[0];
-                recommendation = line[1];
-                if (!Int32.TryParse(line[2], out payment))
-                {
-                    break;
-                }
-
-                BuildedEmployees.Add(new WorkType(description, recommendation,payment, numberOfEmployees));
-            }
-            input.Close();
-            listSize = BuildedEmployees.Count;
-        }//конец конструктора
-
-
-        public void DisplayWorkTypesInfo()
+            Console.WriteLine("Введите описание типа работы:");
+            Errors.CheckStr(ref description);
+            Console.WriteLine("Введите рекомендованную должность для типа работы:");
+            Errors.CheckStr(ref recommendation);
+            Console.WriteLine("Введите оплату за день типа работы:");
+            Errors.CheckNumber(ref payment);
+            Console.WriteLine("Введите кол-во сотрудников для данного типа работы:");
+            Errors.CheckNumber(ref numberOfEmployees);
+            workTypes.Add(new WorkType(description, recommendation, payment, numberOfEmployees));
+            listSize++;
+        }
+        public override void SortByField()
         {
-            var table = new ConsoleTable("№", "Описание", "Оплата за день");
-            for (int i = 0; i < listSize; i++)
+            Console.WriteLine("Введите назание поля, по которому нужно отсортировать: ");
+            string field = "";
+            Errors.CheckWorkTypesField(ref field);
+            if (field == "Описание")
             {
-                table.AddRow(i + 1, BuildedEmployees[i].Description, BuildedEmployees[i].Payment);
+                workTypes = workTypes.OrderBy(i => i.Description).ToList();
             }
-            table.Write(Format.Alternative);
+            if (field == "Рекомендуемая должность")
+            {
+                workTypes = workTypes.OrderBy(i => i.Recommendation).ToList();
+            }
+            if (field == "Оплата за день")
+            {
+                workTypes = workTypes.OrderBy(i => i.Payment).ToList();
+            }
+            if (field == "Количество работников")
+            {
+                workTypes = workTypes.OrderBy(i => i.NumberOfEmployees).ToList();
+            }
         }
     }
 }

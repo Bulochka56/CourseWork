@@ -1,98 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Coursework.Employee">
-    <Position X="11.25" Y="1.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAQAAgEEAAAAAAQAQAAEAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coursework.WorkType">
-    <Position X="9.25" Y="1.75" Width="1.75" />
+    <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAgAAAAIIAAAACAAAAAAAAAAAABAAAABQA=</HashCode>
       <FileName>Classes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coursework.Work">
-    <Position X="13" Y="1.75" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAACAQAAggAAAIAAAAJAAAACQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coursework.EmployeesList">
-    <Position X="0.75" Y="4.75" Width="1.5" />
+  <Class Name="Coursework.Wages">
+    <Position X="9.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACIAEAAAAAAAAAIAAACAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAACACAAAgAgAAAAAA=</HashCode>
+      <FileName>Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coursework.EmployeesList">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAEAAAAAAAAAIAAACAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>EmployeesList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coursework.Errors">
-    <Position X="4.75" Y="1" Width="1.5" />
+    <Position X="13" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAMAAUAAAQAAAAAAACAAAAAAAAAAAEAAAAgIAAA=</HashCode>
       <FileName>Errors.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Coursework.Lists">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACIAEAAAAAAAAJIAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>List.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Coursework.Menu">
-    <Position X="6.75" Y="3.5" Width="1.75" />
+    <Position X="13" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAIAAAgAAAAAAAAAAAAAAEAAAAAAgAAAA=</HashCode>
       <FileName>Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coursework.Messages">
-    <Position X="6.5" Y="1" Width="2" />
+    <Position X="11.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABQAEAAABAAiAAAAAAAIChABBICAAEQAAIAQA=</HashCode>
       <FileName>Messages.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coursework.Program">
-    <Position X="9.25" Y="5" Width="1.5" />
+    <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coursework.Lists">
-    <Position X="2.25" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAIAEAAAAAAAAJIAAAAAAAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>List.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coursework.WorkTypesList">
-    <Position X="4.5" Y="4.75" Width="1.5" />
-    <InheritanceLine Type="Coursework.Lists" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3" Y="3.709" />
-        <Point X="3" Y="4.375" />
-        <Point X="5.188" Y="4.375" />
-        <Point X="5.188" Y="4.75" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAEAAAAAAAAAIAAAAQAAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>WorkTypesList.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coursework.Wages">
-    <Position X="11.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAACACAAAgAgAAAAAA=</HashCode>
-      <FileName>Classes.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Coursework.WorksList">
-    <Position X="2.5" Y="4.75" Width="1.75" />
+    <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAIAAAAAAAAAAAgAAAAAAAAAAEAAQCAAAAAAA=</HashCode>
       <FileName>WorksList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coursework.WorkTypesList">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAEAAAAAAAAAIAAAAQAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>WorkTypesList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -13,33 +13,30 @@ namespace Coursework
             int menu = 10;
             EmployeesList objectEmployees = null;
             WorkTypesList objectWorkTypes = null;
+            WorksList objextWork = null;
             while (menu !=0)
             {
                 Messages.DisplayMenu();
                 Console.Write("Введите значение: ");
-                try
+                Errors.CheckMenu(ref menu);
+                if (!(menu >= 0 && menu <= 3))
                 {
-                    menu = Convert.ToInt32(Console.ReadLine());
+                    Messages.ErrorMenu();
                 }
-                catch (Exception e)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ошибка: " + e.Message);
-                    Console.ResetColor();
-
-                }
-
                 if (menu == 1)
                 {
-                    Menu.DoEmployeesMenu(objectEmployees);
+                    Menu.DoEmployeesMenu(ref objectEmployees);
                 }
                 if (menu == 2)
                 {
-                    WorkTypesList objectContract = new WorkTypesList();
-                    objectContract.DisplayWorkTypesInfo();
+                    Menu.DoWorkTypesMenu(ref objectWorkTypes);
                 }
-                
-                
+                if(menu == 3)
+                {
+                    Menu.DoWorksMenu(ref objextWork, ref objectEmployees, ref objectWorkTypes);
+                }
+
+
             }
             Messages.DisplayEndOfProgramm();
             Console.ReadKey();

@@ -5,113 +5,90 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using ConsoleTables;
+using System.Reflection;
 
 namespace Coursework
 {
-    class EmployeesList
+    class EmployeesList : Lists
     {
-        List<Employee> Employees = new List<Employee>();
-        int listSize;
-
-        public EmployeesList(string filename)
+        public EmployeesList(string filename) : base(filename, "EmployeesList") 
         {
-            string name = "";
-            string title = "";
-            int salary = 0;
-            string phoneNumber = "";
-
-            Errors.CheckFile(filename);
-            StreamReader input = new StreamReader(filename);
-            while (!(input.EndOfStream))
+            if (employees == null)
             {
-                string[] line = input.ReadLine().Split(';');
-                name = line[0];
-
-                title = line[1];
-                phoneNumber = line[2];
-                if (!Int32.TryParse(line[3], out salary))
-                {
-                    break;
-                }
-
-                Employees.Add(new Employee(name, title,salary,phoneNumber));
+                Messages.ErrorFile();
+                return;
             }
-            input.Close();
-            listSize = Employees.Count;
-            
-        }//конец конструктора
+            listSize = employees.Count();
+        }
+        
+        public List<Employee> Employees
+        {
+            get { return employees; }
+        }
 
-
-        public void DisplayEmployeesInfo()
+        public override void DisplayListInfo()
         {
             var table = new ConsoleTable("№","Имя", "Должность","Номер телефона","Оклад");
             for (int i = 0; i < listSize; i++)
             {
-                table.AddRow(i+1,Employees[i].Name, Employees[i].Title, Employees[i].PhoneNumber, Employees[i].Salary);
+                table.AddRow(i+1,employees[i].Name, employees[i].Title, employees[i].PhoneNumber, employees[i].Salary);
             }
             table.Write(Format.Alternative);
         }
-        public void RemoveEmployee()
+        public override void RemoveByIndex()
         {
             Console.WriteLine("Введите номер сотрудника:");
-            int i = Convert.ToInt32(Console.ReadLine());
-            Employees.RemoveAt(i-1);
+            int i = -1;
+            Errors.CheckNumber(ref i);
+            while (!(i >= -1 && i <= employees.Count))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ошибка:Cотрудника под таким номером нет");
+                Console.ResetColor();
+                Console.WriteLine("Введите номер сотрудника:");
+                Errors.CheckNumber(ref i);
+            }
+            employees.RemoveAt(i-1);
             listSize--;
         }
-        public void AddEmployee()
+        public override void AddByConsole()
         {
             string name = "";
             string title = "";
-            int salary = 0;
+            int salary = -1;
             string phoneNumber = "";
             Console.WriteLine("Введите ФИО сотрудника:");
-            name = Console.ReadLine();
+            Errors.CheckName(ref name);
             Console.WriteLine("Введите должность сотрудника:");
-            title = Console.ReadLine();
-            Console.WriteLine("Введите телефонный номер сотрудника:");
-            phoneNumber = Console.ReadLine();
+            Errors.CheckStr(ref title);
+            Console.WriteLine("Введите телефонный номер сотрудника в формате +7(###)###-##-## : ");
+            Errors.CheckPhoneNumber(ref phoneNumber);
             Console.WriteLine("Введите оклад сотрудника:");
-            if (!Int32.TryParse(Console.ReadLine(), out salary))
-            {
-                Messages.ErrorSalary();
-                return;
-            }
-            Employees.Add(new Employee(name, title, salary, phoneNumber));
+            Errors.CheckNumber(ref salary);
+            employees.Add(new Employee(name, title,phoneNumber,salary));
             listSize++;
         }
-        public void SortEmployees()
+        public override void SortByField()
         {
             Console.WriteLine("Введите назание поля, по которому нужно отсортировать: ");
-            string param = Console.ReadLine();
-            if (param == "ФИО")
+            string field = "";
+            Errors.CheckEmployeeField(ref field);
+            if (field == "Имя")
             {
-                Employees =
-                    (from employee in Employees
-                     orderby employee.Name
-                     select employee).ToList();
+                employees = employees.OrderBy(i => i.Name).ToList();
             }
-            if (param == "Должность")
+            if (field == "Должность")
             {
-                Employees =
-                    (from employee in Employees
-                     orderby employee.Title
-                     select employee).ToList();
+                employees = employees.OrderBy(i => i.Title).ToList();
             }
-            if (param == "Номер телефона")
+            if (field == "Номер телефона")
             {
-                Employees =
-                    (from employee in Employees
-                     orderby employee.PhoneNumber
-                     select employee).ToList();
+                employees = employees.OrderBy(i => i.PhoneNumber).ToList();
             }
-            if (param == "Оклад")
+            if (field == "Оклад")
             {
-                Employees =
-                    (from employee in Employees
-                     orderby employee.Salary
-                     select employee).ToList();
+                employees = employees.OrderBy(i => i.Salary).ToList();
             }
         }
-        
     }
 }
